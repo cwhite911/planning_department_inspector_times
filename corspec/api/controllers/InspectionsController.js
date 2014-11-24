@@ -21,6 +21,10 @@ module.exports = {
 					if (err){
 						res.status(400).end();
 					}
+					data.forEach(function(rec){
+						//Converts text date to time
+							rec.time = Date.parse(rec.UPDATE_DATE.slice(0, -2));
+					});
 					res.send(data);
 			});
 		}
