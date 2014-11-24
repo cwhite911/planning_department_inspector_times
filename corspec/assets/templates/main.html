@@ -1,2 +1,32 @@
 <h1 ng-show="inspector.name" class="page-header">Inspector: {{inspector.name}} <i ng-show="inspector.date">on {{inspector.date}}</i></h1>
 <leaflet center="center" layers="layers" defaults="defaults" height="500px" width="100%"></leaflet>
+<br>
+<div ng-show="inspector.results.length > 0">
+
+<div class="row">
+
+  <div class="col-md-6">
+    <div><h2>Daily Log</h2></div>
+<table class="table-responsive table">
+  <thead>
+    <th class="text-primary">Permit Type</th>
+    <th class="text-primary">Permit Number</th>
+    <th class="text-primary">Date/Time</th>
+    <th class="text-primary">Address</th>
+  </thead>
+  <tbody >
+    <tr ng-repeat="row in inspector.results">
+      <td>{{row.PERMIT_TYPE_CODE}}</td>
+      <td>{{row.PERMIT_NUM}}</td>
+      <td>{{row.UPDATE_DATE}}</td>
+      <td>{{row.ADDRESS}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="col-md-6">
+  <div><h2>Time Between Inspections</h2></div>
+  <div id="lineChart" class="epoch category20c"></div>
+</div>
+</div>
+</div>

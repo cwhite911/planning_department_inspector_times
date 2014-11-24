@@ -8,21 +8,26 @@
  * Controller of the corPingApp
  */
 angular.module('inspect')
-  .controller('MainCtrl', ['$scope', '$http', 'leafletData', 'inspector', function ($scope, $http, leafletData, inspector) {
+  .controller('MainCtrl', ['$scope', '$http', '$filter', 'leafletData', 'inspector', function ($scope, $http, $filter, leafletData, inspector) {
     //Sends event to all other subscribers
     $scope.inspector = inspector;
-    $scope.getDate = function (inspector){
-      var config = {
-        params: {
-          UPDATE_DATE: inspector.name,
-          PERM_INSPECTOR_NAME: inspector.date
-        }
-      };
-      $http.get('/inspectors/getDay', { params: params }).success(function(res){
-        console.log(res);
-      });
 
+
+    $scope.$watchCollection('inspector', function(){
+      if($scope.inspector.lineChartData[0].values.length > 0){
+      angular.element('#lineChart').epoch({
+        type: 'line',
+        data: $scope.inspector.lineChartData,
+        ticks: {right: 5, bottom: 8, left: 5 },
+        tickFormats: { bottom: function(d) { return $filter('date')(d, 'h:mma')} },
+        height: 500,
+        width: 500
+      });
+      console.log($scope.inspector);
     }
+    });
+
+
       angular.extend($scope, {
       center: {
         lat: 35.843768,
@@ -36,22 +41,13 @@ angular.module('inspect')
                     url: 'https://{s}.tiles.mapbox.com/v3/ctwhite.g8n5fjjp/{z}/{x}/{y}.png',
                     type: 'xyz'
                 },
-                raleigh:{
 
-                  name: "Basic Base Map",
-                    type: "dynamic",
-                    url: "http://maps.raleighnc.gov/arcgis/rest/services/BaseMap/MapServer",
-                    visible: false,
-                    layerOptions: {
-                        layers: ['*'],
-                          opacity: 1,
-                          attribution: "Copyright:© 2014 City of Raleigh"
-                    }
-                }
-            },
+            }
+        },
+        markers: {}
 
 
-}
+
 
   });
 

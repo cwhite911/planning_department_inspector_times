@@ -4,7 +4,7 @@
 
 html, body{
   height:100%;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .ng-scope {
@@ -362,4 +362,14 @@ box-shadow: 0 5px 15px rgba(184, 183, 247, 0.5);
 
 .fullview:hover{
   color: rgba(0,100,225,1);
+}
+
+
+/*#lineChart .Series-1 .line {
+  stroke: pink;
+}*/
+
+tbody tr:hover{
+  background-color: #428bca;
+  color: white;
 }
