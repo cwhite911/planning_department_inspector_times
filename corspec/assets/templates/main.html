@@ -1,1 +1,2 @@
-<h1 class="page-header">Dashboard</h1>
+<h1 ng-show="inspector.name" class="page-header">Inspector: {{inspector.name}} <i ng-show="inspector.date">on {{inspector.date}}</i></h1>
+<leaflet center="center" layers="layers" defaults="defaults" height="500px" width="100%"></leaflet>

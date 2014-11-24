@@ -147,10 +147,13 @@ tbody.mapTableBody {
 
 }
 
-.form-inputs {
-  background-color: rgba(143, 144, 141, 0.49);
-  border-color:#7a7c78;
-  color: white;
+.form-group {
+  width: 75%;
+  margin-left: 20px;
+}
+
+#form-submit{
+  margin-left: 20px;
 }
 
 .autocomplete input{
@@ -359,29 +362,4 @@ box-shadow: 0 5px 15px rgba(184, 183, 247, 0.5);
 
 .fullview:hover{
   color: rgba(0,100,225,1);
-}
-
-.leaflet-control-layers-toggle {
-  background-color: rgba(0,0,0, 0.90);
-  top:6%;
-  z-index: 2000;
-}
-.leaflet-control-layers-list {
-  z-index: 1000;
-  background-color: rgba(70, 67, 67, 0.73);
-  color: white;
-}
-
-.mapPrint{
-  background-color: rgba(0,0,0, 0.90);
-  border-color: rgba(0,0,0, 0.90);
-}
-
-
-  /*background-color: rgba(0,0,0, 0.70);
-  border-color: rgba(0,0,0, 0.50);;
-}*/
-
-.leaflet-right .leaflet-control {
-  background-color: rgba(70, 67, 67, 0.73);
 }

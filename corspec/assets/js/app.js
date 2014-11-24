@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('inspect', ['ngRoute'])
+angular.module('inspect', ['ngRoute', 'leaflet-directive'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
