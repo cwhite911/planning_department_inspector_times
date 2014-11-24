@@ -6,9 +6,11 @@
 */
 
 module.exports = {
-
   attributes: {
-
+      PERMIT_TYPE_CODE: { type: 'string'},
+      PERMIT_NUM: {},
+      UPDATE_DATE: {type: 'date'},
+      PERM_INSPECTOR_NAME: {},
+      ADDRESS: {}
   }
 };
-
